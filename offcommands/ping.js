@@ -8,7 +8,7 @@ module.exports = {
     const pingEmbed = new EmbedBuilder()
       .setColor(aqua)
       .setTitle('Bot\'s ping')
-      .setDescription('The current bot\'s ping!')
+      .setDescription('Pong!')
       .addFields(
   		{ name: 'Bot Latency', value: `${Date.now()- interaction.createdTimestamp}ms.`, inline: true },
   		{ name: 'Api Latency', value: `${Math.round(client.ws.ping)}ms.`, inline: true },

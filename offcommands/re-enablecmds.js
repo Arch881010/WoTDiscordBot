@@ -15,7 +15,11 @@ module.exports = {
     await interaction.deferReply({ephemeral: true})
       const fs = require('fs');
       var name = 'zdata.json';
+      try{
       var time = new Date(interaction.options.getString('date'));
+      } catch(err) {
+        await interaction.editReply({content:`Please make sure you follow YYYY-MM-DD format. You supplied: ${interaction.options.getString('date'), ephemeral=true}`});
+      }
       const jsonchange = {
       "unix":Number(time)
       }

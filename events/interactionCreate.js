@@ -23,6 +23,14 @@ module.exports = {
   var ck2 = interaction.member.id == "410248634593050627";
   if(ck1 == false && ck2 == false) {
     await interaction.reply("You do not have the role named \"SCRLL\" or you are not the owner.");
+    var fs = require('node:fs');
+    try {
+      var data = cache.get('blocked');
+      data[`${interaction.user.tag}`] = `{"time":${new Date.now()}}`
+      cache.update("data",data);
+    } catch(err) {
+      cache.add('blocked', `{"${interaction.user.tag}":{"time":${new Date.now()}}`);
+    }
     return;
   }
   try {
