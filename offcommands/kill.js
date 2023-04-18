@@ -20,7 +20,7 @@ module.exports = {
       }
     }
     async function die() {
-      cache.add("killer", `{"user": ${interaction.user.id}, "id":${interaction.user.id}}`)
+      cache.add("killer", `{"user": ${interaction.user.tag}, "id":${interaction.user.id}}`)
       interaction.client.destroy();
     }
     async function sleep(ms) {
