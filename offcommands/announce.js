@@ -5,7 +5,7 @@ module.exports = {
     .setDescription("Announces a text.")
     .addStringOption(option =>
       option.setName('input')
-        .setDescription("The text to annouce.")
+        .setDescription("The text to annouce.") 
         .setMaxLength(2000)
         .setRequired(true))
     .addChannelOption(option =>
