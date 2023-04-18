@@ -1,0 +1,9 @@
+const improved_hardening_conversion = {
+suspension_components: 30,
+engine_components: 20,
+tooling: 2,
+fasteners: 5,
+
+time: 2*60,
+}
+30 20 2 5

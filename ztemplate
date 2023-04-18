@@ -1,0 +1,20 @@
+const {SlashCommandBuilder} = require('discord.js');
+module.exports = {
+  data: new SlashCommandBuilder()
+  .setName()
+  .setDescription()
+  .addNumberOption(option =>
+    option.setName("amount")
+      .setDescription("The amount of x")
+      .setRequired(true))
+  .addBooleanOption(option =>
+    option.setName("private")
+      .setDescription('Make response private?')),
+  async execute(interaction) {
+    private = interaction.options.getBoolean('private') ?? false;
+    await interaction.deferReply({ephemeral:private});
+    //data here
+    amount = interaction.options.getNumber('amount');
+    await interaction.editReply();
+  }
+}

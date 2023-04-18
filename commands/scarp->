@@ -1,0 +1,2 @@
+const non_ferrous_metal_conversion = 15;
+const ferrous_metal_conversion = 5;
