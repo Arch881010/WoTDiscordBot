@@ -8,4 +8,3 @@ module.exports = {
     await interaction.editReply("There is no season currently. If you wish for commands to be re-enabled again, please let <@!410248634593050627> know.");
   }
 }
-//

@@ -6,7 +6,13 @@ const manager = new ShardingManager('./bot.js', {
   respawn: true
 });
 
-manager.on('shardCreate', shard => console.log(`Shard ${Number(shard.id)} has been spawned!`));
+manager.on('shardCreate', shard => {
+  console.log(`Shard ${Number(shard.id)} has been spawned!`);
+    try{
+    var x = cache.get('maxShards');
+    cache.update('maxShards', x + 1);
+    }catch(err){}
+});
 
 manager.on('death', (process)=> {
   console.log(`${process.id} has died.`)
@@ -18,7 +24,9 @@ manager.on("shardDisconnect", (event) => {
   console.log(`${event.id} has disconnected.`)
 })
 try {
+cache.delete('maxShards');
 manager.spawn({shards:"auto"});
 } catch(e){
-  
+  console.log("Failed to delete 'maxShards'");
+  manager.spawn({shards:"auto"});
 }

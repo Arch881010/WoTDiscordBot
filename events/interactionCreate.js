@@ -27,7 +27,7 @@ module.exports = {
     try {
       var data = cache.get('blocked');
       data[`${interaction.user.tag}`] = `{"time":${new Date.now()}}`
-      cache.update("data",data);
+      cache.update('blocked',data);
     } catch(err) {
       cache.add('blocked', `{"${interaction.user.tag}":{"time":${new Date.now()}}`);
     }
@@ -38,7 +38,7 @@ module.exports = {
     await command.execute(interaction);
   } catch (error) {
     console.error(error);
-    await interaction.editReply({ content: 'There was an error while executing this command! ERR! Please ping <@!410248634593050627> (as I cannot ping him).', ephemeral: true });
+    await interaction.editReply({ content: 'There was an error while executing this command! ERR! Please ping <@!410248634593050627> (as I cannot ping him). Error\n ' + error, ephemeral: true });
   }
 }
 //});

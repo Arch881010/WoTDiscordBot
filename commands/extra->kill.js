@@ -27,8 +27,7 @@ module.exports = {
     await interaction.reply({content:"Restarting the bot " + text +". Will automatically reset and will refresh commands in a few minutes. (Instant to 5 mins)", ephemeral: true});
     await sleep(delay);
     die();
-    const {execSync} = require('child_process');
-    execSync('kill 1');
-    
+    //const {execSync} = require('child_process');
+    //execSync('kill 1');
   }
 }
