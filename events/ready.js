@@ -6,7 +6,6 @@ module.exports = {
   execute(client) {
     client.user.setActivity('for commands', {type:ActivityType.Watching});
     client.user.setStatus('idle');
-    global.ready = true;
     client.user.setUsername('WoT Part Converter');
     try{
       cache.get('ready')
@@ -14,5 +13,6 @@ module.exports = {
     } catch(err){
     cache.add("ready", `{"time":${Date.now()}, "status": "idle", "activity":"Watching for comamnds"}`)
     }
+    global.ready = true;
   }
 }

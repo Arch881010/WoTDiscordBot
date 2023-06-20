@@ -7,6 +7,14 @@
         "version": 0,
         "index": 0
       }
+    ],
+    "offcommands/analyst (copy).js": [
+      {
+        "id": "ba38c1c7-cc0e-4dd8-9eab-36def8b02478",
+        "line": 15,
+        "version": 652,
+        "index": 749
+      }
     ]
   }
 }

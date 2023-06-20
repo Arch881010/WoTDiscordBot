@@ -1,7 +1,7 @@
 const express = require('express');
-var cacheName = "arch881010-cache";
-global.cache = require(cacheName);
+global.cache = require('arch881010-cache');
 cache.new();
+
 const frequire = require('import-fresh');
 const app = express();
 const port = 3000;
@@ -75,5 +75,5 @@ if (Number(token.length) !== 72) {
   console.log("Logged in.")
 }
 client
-  .on("debug", console.log)
+  //.on("debug", console.log)
   .on("warn", console.log)
