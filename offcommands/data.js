@@ -39,6 +39,7 @@ Hit-Rate: ${(results['stats']['hitrate'])*100}%
 ${changes}__Misc__
 Last battle: <t:${results['timeData']['lastBattle']}:R>
 Last Time Logged Out: <t:${results['timeData']['lastLogout']}:R>
+https://tomato.gg/stats/NA/${results['player']['player_nick']}=${results['player']['player_id']}
 `)
 
   }

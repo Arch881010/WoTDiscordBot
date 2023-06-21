@@ -2,6 +2,7 @@ const express = require('express');
 global.cache = require('arch881010-cache');
 cache.new();
 
+setInterval(function(){fetch('https://server.arch881010.repl.co/ping')}, 600000) //Prevents timeout
 const frequire = require('import-fresh');
 const app = express();
 const port = 3000;
