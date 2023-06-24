@@ -1,5 +1,12 @@
-
 const { ShardingManager } = require('discord.js');
+const express = require('express');
+const app = express();
+const port = 3000;
+app.get('/', (req, res) => res.send('Bot is currently online.'))
+app.get('/shard', (req, res) => res.send("Shards: 0(1)"))
+app.get('/status.json', (req, res) => res.send('{"status":"Online"}'))
+app.listen(port, () => console.log());
+
 const manager = new ShardingManager('./bot.js', {
   token: process.env['token'],
   totalShards: "auto",

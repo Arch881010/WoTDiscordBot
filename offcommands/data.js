@@ -19,7 +19,7 @@ module.exports = {
     try {
     results = await results.json();
     } catch(err) {
-      await interaction.editReply(`User \`${user}\` does not exist, are you sure you typed the username correctly?`);
+      await interaction.editReply(`The user (\`${user}\`) may not exist, are you sure you typed the username correctly? (API returned error.)`);
       return;
     }
     //results.
@@ -32,7 +32,7 @@ Battles: ${results['changes']['battles']}
 Winrate: ${(results['changes']['wr'])*100}%
 Hit-Rate: ${(results['changes']['hitrate'])*100}%\n`
     }
-    await interaction.editReply(`__Player Stats for \` ${results['player']['player_nick']}\`__
+    await interaction.editReply(`Player Stats for \` ${results['player']['player_nick']}\`
 Battles: ${results['stats']['battles']}
 Winrate: ${(results['stats']['wr'])*100}%
 Hit-Rate: ${(results['stats']['hitrate'])*100}%

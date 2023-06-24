@@ -1,7 +1,4 @@
 const {SlashCommandBuilder} = require('discord.js');
-const bp1N = "Sandstorm";
-const bp2N = "Southern Cross";
-const bp3N = "Dune Road";
 module.exports = { 
     data: new SlashCommandBuilder()
     .setName("total-points")

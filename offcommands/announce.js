@@ -28,30 +28,11 @@ module.exports = {
       const channel = interaction.options.getChannel('channel');
       const text = interaction.options.getString('input');
       await interaction.deferReply({ ephemeral: true });
-      var last_post;
-      try {
-        last_post = cache.get(interaction.user.tag);
-      } catch (e) {
-        last_post = {
-          "Command": "Null",
-          "Text": "Null",
-          "Cooldown": 0
-        }
-      }
-      console.log(last_post.Cooldown,"vs", Date.now());
-        if (last_post.Cooldown > Date.now()) {
-          if(last_post.Cooldown == 0) {} else {
-          await interaction.editReply("You posted not that long ago. Cooldown Expires:" + `<t:${last_post.Cooldown}:R>. Post: <t:${last_post.Post_Date}:t>`);
-          return;
-      }
-        }
       if (!channel.permissionsFor(interaction.guild.members.me).toArray().includes("SendMessages") || !channel.permissionsFor(interaction.guild.members.me).toArray().includes("ViewChannel")) {
         await interaction.editReply("I could not send a message to that channel! <#" + channel + "> was attempted to be posted into!");
         return;
       }
-      if (delay != 0) channel.send(`Upcoming annoucement in ${delay} minutes.`);
       await interaction.editReply({ content: `Sucessfully set a delay for ${delay} mins, post in ${channel}, and with the text \`"${text}"\`!`, ephemeral: true });
-      cache.add(`${interaction.user.tag}`, `{"Command":"Announce","Text":"${text}","Cooldown": ${Date.now() + 10000}, "Post_Date":${Date.now()}}`);
       await sleep(delay);
       var msg = await channel.send(text);
     } else {

@@ -42,6 +42,7 @@ async function refcommands() {
       console.log('-------------------')
       console.log(commands[commands.length-1].name);
     }
+    console.log('-------------------')
   }
 
 

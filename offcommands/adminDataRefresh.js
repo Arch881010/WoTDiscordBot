@@ -1,20 +1,29 @@
 const {SlashCommandBuilder} = require('discord.js');
 module.exports = { 
     data: new SlashCommandBuilder()
-    .setName("admin-stats")
+    .setName("refresh-all-stats")
     .setDescription('Refreshes Clans Stats'),
   async execute(interaction) {
     await interaction.deferReply({ephemeral: true});
+    if(interaction.user.id != "4102486345930506270") {
+      await interaction.editReply("Only Arch can do this!");
+      return;
+    }
     var data = await fetch('https://api.worldoftanks.com/wot/clans/info/?application_id=f83742cd66a540b80eb504162a3c516c&clan_id=1000063539&fields=leader_name%2C+members.account_name');
     data = await data.json();
     data = data['data']['1000063539'];
     for (user of data['members']) {
     user = user['account_name']
-    console.log(`Refreshing ${user}.` )
+    console.log(`Refreshing ${user}.` );
     const channel = client.channels.cache.get("1108197950422794380");
     channel.send({content:`Refreshing ${user}!`})
     }
-  await interaction.editReply({content:"Done adding people.", ephemeral:true})
+    await fetch(`https://server.arch881010.repl.co/stats/${user}`, {
+      "headers":{
+        "src":`WOTDiscordBot | ${interaction.user.tag}`
+      }
+    });
+  await interaction.editReply({content:"Done refreshing people.", ephemeral:true})
 }
 }
 

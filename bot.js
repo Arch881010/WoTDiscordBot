@@ -1,19 +1,10 @@
-const express = require('express');
 global.cache = require('arch881010-cache');
-cache.new();
-
-setInterval(function(){fetch('https://server.arch881010.repl.co/ping')}, 600000) //Prevents timeout
 const frequire = require('import-fresh');
-const app = express();
-const port = 3000;
+setInterval(function(){fetch('https://server.arch881010.repl.co/ping')}, 600000) //Prevents timeout
 const unix = require('./zdata.json').unix;
 var authroles = frequire('./data/authroles.json');
 global.roles = authroles.roles;
-app.get('/', (req, res) => res.send('Bot is currently online.'))
-app.get('/shard', (req, res) => res.send("Shards: 0(1)"))
-app.get('/status.json', (req, res) => res.send('{"status":"Online"}'))
 global.ready = false;
-app.listen(port, () => console.log());
 
 
 const fs = require('node:fs');

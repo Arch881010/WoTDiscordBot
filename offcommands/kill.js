@@ -20,7 +20,6 @@ module.exports = {
       }
     }
     async function die() {
-      cache.add("killer", `{"user": ${interaction.user.tag}, "id":${interaction.user.id}}`)
       interaction.client.destroy();
     }
     async function sleep(ms) {
@@ -32,15 +31,7 @@ module.exports = {
     await interaction.reply({content:"Restarting the bot " + text +". Will automatically reset and will refresh commands in a few minutes. (Instant to 5 mins)", ephemeral: true});
     await sleep(delay);
     die();
-    //const {execSync} = require('child_process');
-    //execSync('kill 1');
-    global.client = new Client({
-      intents: [
-        GatewayIntentBits.Guilds,
-        GatewayIntentBits.MessageContent,
-        GatewayIntentBits.GuildMessages,
-      ],
-    }
-    )
+    const {execSync} = require('child_process');
+    execSync('kill 1');
   }
 }
