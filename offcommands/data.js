@@ -38,7 +38,8 @@ Winrate: ${(results['stats']['wr'])*100}%
 Hit-Rate: ${(results['stats']['hitrate'])*100}%
 ${changes}__Misc__
 Last battle: <t:${results['timeData']['lastBattle']}:R>
-Last Time Logged Out: <t:${results['timeData']['lastLogout']}:R>
+Last Time Logged Out (This does not count last login): <t:${results['timeData']['lastLogout']}:R>
+Overall WN8: ${calculatedWn8}
 https://tomato.gg/stats/NA/${results['player']['player_nick']}=${results['player']['player_id']}
 `)
 

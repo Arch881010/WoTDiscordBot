@@ -6,6 +6,9 @@ var authroles = frequire('./data/authroles.json');
 global.roles = authroles.roles;
 global.ready = false;
 
+global.calculateWn8 = function(player) {
+
+}
 
 const fs = require('node:fs');
 const path = require('node:path');
