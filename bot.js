@@ -1,4 +1,4 @@
-//global.cache = require('arch881010-cache');
+global.cache = require('arch881010-cache');
 const frequire = require('import-fresh');
 const unix = require('./zdata.json').unix;
 var authroles = frequire('./data/authroles.json');
