@@ -10,6 +10,7 @@ module.exports = {
         .setName('user')),
   async execute(interaction) {
     await interaction.deferReply();
+    return await interaction.editReply("This command has been disabled; Needs rework.")
     var user = await interaction.options.getString('user');
     var results = await fetch(`https://server.arch881010.repl.co/stats/${user}`, {
       "headers":{

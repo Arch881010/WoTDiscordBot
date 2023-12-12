@@ -1,6 +1,5 @@
-global.cache = require('arch881010-cache');
+//global.cache = require('arch881010-cache');
 const frequire = require('import-fresh');
-setInterval(function(){fetch('https://server.arch881010.repl.co/ping')}, 600000) //Prevents timeout
 const unix = require('./zdata.json').unix;
 var authroles = frequire('./data/authroles.json');
 global.roles = authroles.roles;
@@ -32,7 +31,7 @@ global.client = new Client({
 )
 global.frequire = require('import-fresh')
 function offse() {
-  if (Date.now() < unix) {
+  if (Date.now() < unix && false) {
     return ""
   } else {
     return "off"
