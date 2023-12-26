@@ -9,6 +9,7 @@ module.exports = {
         .setName('user')),
   async execute(interaction) {
     await interaction.deferReply();
+    return await interaction.editReply("No data being stored.")
     var user = await interaction.options.getString('user');
     await interaction.editReply('Posting Deletion request..')
     var res;

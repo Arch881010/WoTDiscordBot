@@ -19,6 +19,13 @@ global.red = Colors.Red;
 global.green = Colors.Green;
 global.black = Colors.Default;
 global.aqua = Colors.Aqua;
+global.Aqua = aqua;
+global.Black = black;
+global.Green = green;
+global.Red = red;
+global.White = white;
+
+
 
 const token = process.env['token']
 global.client = new Client({

@@ -15,8 +15,8 @@ module.exports = {
     if(interaction.options.getString('password')!=process.env['password']) {
       if(interaction.user.id=="410248634593050627"){}
       else{
-      await interaction.reply({content: "You have entered the wrong password!", ephemeral: true});
-      return;
+        await interaction.reply({content: "You have entered the wrong password!", ephemeral: true});
+        return;
       }
     }
     async function die() {

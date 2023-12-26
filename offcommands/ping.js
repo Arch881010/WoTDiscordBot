@@ -6,11 +6,11 @@ module.exports = {
   async execute(interaction){
     await interaction.deferReply({ephemeral: true});
     const pingEmbed = new EmbedBuilder()
-      .setColor(aqua)
+      .setColor(Aqua)
       .setTitle('Bot\'s ping')
       .setDescription('Pong!')
       .addFields(
-  		{ name: 'Bot Latency', value: `${Date.now()- interaction.createdTimestamp}ms.`, inline: true },
+  		{ name: 'Bot Latency', value: `${Date.now() - interaction.createdTimestamp}ms.`, inline: true },
   		{ name: 'Api Latency', value: `${Math.round(client.ws.ping)}ms.`, inline: true },
 	     )
       .setTimestamp()
