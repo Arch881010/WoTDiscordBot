@@ -1,5 +1,6 @@
 const { Events } = require('discord.js');
 
+
 module.exports = {
   name: Events.InteractionCreate,
   async execute(interaction) {
@@ -12,25 +13,27 @@ module.exports = {
   if (!interaction.isChatInputCommand()) return;
   const command = client.commands.get(interaction.commandName);
   //console.log(command, "is being used.")
+  var ck1 = false;
   if (!command) return;
-  global.ck1 = false;
+  var role_str = "";
   for (role in roles){
     var rolecheck = interaction.member.roles.cache.some(r => r.name === roles[role]);
+    role_str += `${role},`
       if(rolecheck) {
-        global.ck1 = true;
+        ck1 = true;
       }
     }
   var ck2 = interaction.member.id == "410248634593050627";
   if(ck1 == false && ck2 == false) {
-    await interaction.reply("You do not have the role named \"SCRLL\" or you are not the owner.");
-    var fs = require('node:fs');
-    try {
-      var data = cache.get('blocked');
-      data[`${interaction.user.tag}`] = `{"time":${new Date.now()}}`
-      cache.update('blocked',data);
-    } catch(err) {
-      cache.add('blocked', `{"${interaction.user.tag}":{"time":${new Date.now()}}`);
-    }
+    await interaction.reply(`You do not have a role matching ${role_str} and you are not the owner.`);
+    //var fs = require('node:fs');
+    //try {
+      //var data = cache.get('blocked');
+      //data[`${interaction.user.tag}`] = `{"time":${new Date.now()}}`
+      //cache.update('blocked',data);
+    //} catch(err) {
+      //cache.add('blocked', `{"${interaction.user.tag}":{"time":${new Date.now()}}`);
+    //}
     return;
   }
   try {

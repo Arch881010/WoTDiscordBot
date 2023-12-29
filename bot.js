@@ -1,8 +1,11 @@
-global.cache = require('arch881010-cache');
-const frequire = require('import-fresh');
-const unix = require('./zdata.json').unix;
-var authroles = frequire('./data/authroles.json');
-global.roles = authroles.roles;
+//global.cache = require('arch881010-cache');
+//const frequire = require('import-fresh');
+const data = require('./data.json')
+const unix = data.unix;
+//const unix = require('./zdata.json').unix;
+const authroles = data.auth.roles;
+global.roles = authroles;
+//var authroles = frequire('./data/authroles.json');
 global.ready = false;
 
 global.calculateWn8 = function(player) {
@@ -26,7 +29,7 @@ global.Red = red;
 global.White = white;
 
 
-
+require('dotenv').config(); 
 const token = process.env['token']
 global.client = new Client({
   intents: [
@@ -68,12 +71,14 @@ for (const file of eventFiles) {
   }
 }
 
+var role_str = "";
+
 if (Number(token.length) !== 72) {
   console.log(`ERR. Token did not meet length. Recieved ${token.length} vs 72.`);
   execSync('kill 1');
 } else {
   client.login(token);
-  console.log("Logged in.")
+  console.log("Logged in.");
 }
 client
   //.on("debug", console.log)

@@ -1,4 +1,5 @@
 const { ShardingManager } = require('discord.js');
+require('dotenv').config(); 
 const express = require('express');
 const app = express();
 const port = 3099;

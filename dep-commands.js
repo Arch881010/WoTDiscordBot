@@ -1,4 +1,5 @@
 async function refcommands() {
+  require('dotenv').config(); 
   const { REST, Routes } = require('discord.js');
   const clientId = process.env['clientId'];
   const guildId = process.env['guildId'];
